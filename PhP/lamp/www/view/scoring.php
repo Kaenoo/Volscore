@@ -13,28 +13,33 @@ ob_start();
         <div class="setscore"><?= $game->scoreReceiving ?> sets</div>
         <div class="setscore"><?= count($game->receivingTimeouts) ?> timeouts</div>
         <div class="score"><?= $set->scoreReceiving ?></div>
-        <div class="d-flex flex-column align-items-center">
-            <?php foreach ($receivingPositions as $player) : ?>
-                <div class="<?= ($player->id == $nextUp->id ? 'serving' : '') ?>"><?= $player->number ?> <?= $player->last_name ?></div>
-            <?php endforeach; ?>
-        </div>
         <div class="row actions d-flex flex-column">
-            <form method="post" action="?action=scorePoint">
+            <form method="post" action="?action=scorePoint" id="actionForm">
                 <input type="hidden" name="setid" value="<?= $set->id ?>" />
                 <input type="hidden" name="receiving" value="1" />
-                <input class="col-12 btn btn-success" type="submit" value="Point" />
+                <input type="hidden" name="playerId" id="selectedPlayerId" value="" />
+
+                <div class="d-flex flex-column align-items-stretch">
+                    <?php foreach ($receivingPositions as $player) : ?>
+                        <button 
+                            type="button" 
+                            class="btn btn-primary mb-2 w-100 player-button" 
+                            data-player-id="<?= $player->id ?>"
+                            data-player-name="<?= $player->number ?> <?= $player->last_name ?>">
+                            <?= $player->number ?> <?= $player->last_name ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
+                
+                <!-- Boutons pour ajouter un point ou une faute -->
+                <div id="actionButtons" class="mt-3" style="display: none;">
+                    <button type="submit" name="action" value="point" class="btn btn-success w-100 mb-2">Ajouter un point</button>
+                    <button type="submit" name="action" value="fault" class="btn btn-danger w-100">Enregistrer une faute</button>
+                </div>
             </form>
-            <div class="d-flex flex-row justify-content-between">
-                <a class="btn btn-danger m-2" href="?action=selectBooking&teamid=<?= $game->receivingTeamId ?>&setid=<?= $set->id ?>">
-                    Sanctions
-                </a>
-                <?php if (count($game->receivingTimeouts) < 2) : ?>
-                    <a class="btn btn-secondary m-2" href="?action=timeout&teamid=<?= $game->receivingTeamId ?>&setid=<?= $set->id ?>" <?= count($game->receivingTimeouts) > 1 ? "disabled" : "" ?>>
-                        Temps Mort
-                    </a>
-                <?php endif; ?>
-            </div>
         </div>
+
+
     </div>
 
     <!-- 2ème équipe -->
@@ -43,28 +48,34 @@ ob_start();
         <div class="setscore"><?= $game->scoreVisiting ?></div>
         <div class="setscore"><?= count($game->visitingTimeouts) ?> timeouts</div>
         <div class="score"><?= $set->scoreVisiting ?></div>
-        <div class="d-flex flex-column align-items-center">
+
+        <div class="row actions d-flex flex-column">
+    <form method="post" action="?action=scorePoint" id="actionForm">
+        <input type="hidden" name="setid" value="<?= $set->id ?>" />
+        <input type="hidden" name="receiving" value="0" />
+        <input type="hidden" name="playerId" id="selectedPlayerId" value="" />
+
+        <div class="d-flex flex-column align-items-stretch">
             <?php foreach ($visitingPositions as $player) : ?>
-                <div class="<?= ($player->id == $nextUp->id ? 'serving' : '') ?>"><?= $player->number ?> <?= $player->last_name ?></div>
+                <button 
+                    type="button" 
+                    class="btn btn-primary mb-2 w-100 player-button" 
+                    data-player-id="<?= $player->id ?>"
+                    data-player-name="<?= $player->number ?> <?= $player->last_name ?>">
+                    <?= $player->number ?> <?= $player->last_name ?>
+                </button>
             <?php endforeach; ?>
         </div>
-        <div class="row actions d-flex flex-column">
-            <form method="post" action="?action=scorePoint">
-                <input type="hidden" name="setid" value="<?= $set->id ?>" />
-                <input type="hidden" name="receiving" value="0" />
-                <input class="col-12 btn btn-success" type="submit" value="Point" />
-            </form>
-            <div class="d-flex flex-row justify-content-between">
-                <a class="btn btn-danger m-2" href="?action=selectBooking&teamid=<?= $game->visitingTeamId ?>&setid=<?= $set->id ?>">
-                    Sanctions
-                </a>
-                <?php if (count($game->visitingTimeouts) < 2) : ?>
-                    <a class="btn btn-secondary m-2" href="?action=timeout&teamid=<?= $game->visitingTeamId ?>&setid=<?= $set->id ?>">
-                        Temps Mort
-                    </a>
-                <?php endif; ?>
-            </div>
+        
+        <!-- Boutons pour ajouter un point ou une faute -->
+        <div id="actionButtons" class="mt-3" style="display: none;">
+            <button type="submit" name="action" value="point" class="btn btn-success w-100 mb-2">Ajouter un point</button>
+            <button type="submit" name="action" value="fault" class="btn btn-danger w-100">Enregistrer une faute</button>
         </div>
+    </form>
+</div>
+
+
     </div>
 </div>
 
