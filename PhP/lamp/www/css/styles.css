@@ -1,5 +1,41 @@
-header, footer {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    height: 3em;
     background: linear-gradient(0.25turn, #6aa619, #a7f89f, #1eb35c);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer {
+    height: 50px; /* Ajustez selon vos besoins */
+    background: linear-gradient(0.25turn, #1eb35c, #a7f89f, #6aa619);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 td, th {
@@ -68,4 +104,52 @@ td, th {
 .teamPrep {
     width: 30%;
     text-align: center;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Conteneur principal */
+.row {
+    display: flex;
+    justify-content: space-around; /* Espace entre les colonnes */
+    align-items: center; /* Centre verticalement */
+    height: 15vh; /* Prend toute la hauteur de la page */
+}
+
+/* Colonnes */
+.col-6 {
+    flex: 0 0 40%; /* Chaque colonne occupe 40% de la largeur */
+    height: 30em;
+    text-align: center;
+    background-color: #f9f9f9; /* Fond clair pour contraster */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide pour l'effet */
+    padding: 20px;
+    cursor: pointer; /* Curseur pointer pour indiquer un élément cliquable */
+}
+
+/* Effet au survol */
+.col-6:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+}
+
+/* Liens */
+a {
+    text-decoration: none;
+    color: inherit; /* Garder la couleur par défaut */
+    display: block; /* Faire que le lien couvre toute la boîte */
+    height: 100%; /* S'assurer que l'effet hover est sur toute la boîte */
+}
+
+/* Titres */
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #333; /* Couleur du texte */
 }
