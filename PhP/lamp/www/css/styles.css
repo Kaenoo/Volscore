@@ -1,18 +1,18 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: auto;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 115vh;
 }
 
 header {
     height: 3em;
-    background: linear-gradient(0.25turn, #6aa619, #a7f89f, #1eb35c);
+    background: rgb(77, 150, 77);
     text-align: center;
     display: flex;
     align-items: center;
@@ -29,11 +29,9 @@ main {
 }
 
 footer {
-    height: 50px; /* Ajustez selon vos besoins */
-    background: linear-gradient(0.25turn, #1eb35c, #a7f89f, #6aa619);
-    text-align: center;
+    height: 24px;
+    background: rgb(77, 150, 77);
     display: flex;
-    align-items: center;
     justify-content: center;
     color: white;
 }
@@ -117,7 +115,7 @@ h2 {
     display: flex;
     justify-content: space-around; /* Espace entre les colonnes */
     align-items: center; /* Centre verticalement */
-    height: 15vh; /* Prend toute la hauteur de la page */
+    height: 10vh; /* Prend toute la hauteur de la page */
 }
 
 /* Colonnes */
@@ -139,6 +137,38 @@ h2 {
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
 }
 
+.justify-content-around {
+    justify-content: space-around !important;
+    height: 50em;
+}
+
+.player {
+    background-color: #3b5fad;
+    transition: all 0.2s ease;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.player.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+.player.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+
+.player:hover {
+    background-color: #2c40af;
+}
+
 /* Liens */
 a {
     text-decoration: none;
@@ -151,5 +181,6 @@ a {
 h1 {
     font-size: 2.5em;
     margin: 0;
-    color: #333; /* Couleur du texte */
+    color: #000000; /* Couleur du texte */
 }
+
