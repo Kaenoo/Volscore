@@ -3,10 +3,10 @@ $title = 'Préparation du match '.$game->number;
 
 ob_start();
 ?>
-
+<link rel="stylesheet" href="../css/stylePrepareSet.css">
 <h2>Préparation du set <?= $set->number ?> du match <?= $game->number ?>, <?= $game->receivingTeamName ?> - <?= $game->visitingTeamName ?></h2>
 <table>
-    <tr><th class="teamPrep">Positions <?= $game->receivingTeamName ?></th><th class="teamPrep">Positions <?= $game->visitingTeamName ?></th></tr>
+    <tr><th class="teamPrep">Positions <?= $game->receivingTeamName ?></tsh><th class="teamPrep">Positions <?= $game->visitingTeamName ?></th></tr>
     <tr>
         <td class="teamPrep">
             <?php if ($receivingPositionsLocked) : ?>
@@ -75,4 +75,29 @@ ob_start();
 $content = ob_get_clean();
 require_once 'gabarit.php';
 ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const forms = document.querySelectorAll('form');
+
+    forms.forEach(form => {
+        form.addEventListener('submit', function (event) {
+            const selects = form.querySelectorAll('select');
+            const selectedValues = [];
+
+            for (const select of selects) {
+                if (select.value !== "0" && selectedValues.includes(select.value)) {
+                    alert('Un joueur ne peut pas être sélectionné plusieurs fois.');
+                    event.preventDefault(); // Empêche l'envoi du formulaire
+                    return;
+                }
+                if (select.value !== "0") {
+                    selectedValues.push(select.value);
+                }
+            }
+        });
+    });
+});
+
+</script>
 
