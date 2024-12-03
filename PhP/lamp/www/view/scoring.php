@@ -3,7 +3,6 @@ $title = 'Score du match '.$game->number;
 
 ob_start();
 ?>
-
 <div class="row text-center"><h1>Set <?= $set->number ?></h1></div>
 <div class="d-flex flex-row justify-content-around">
 
@@ -29,14 +28,31 @@ ob_start();
                             <?= $player->number ?> <?= $player->last_name ?>
                         </button>
                     <?php endforeach; ?>
+
+                    <!-- Boutons Sanctions et Temps Mort -->
+                    <div class="d-flex flex-row justify-content-between">
+                        <a class="btn btn-danger m-2" href="?action=selectBooking&teamid=<?= $game->receivingTeamId ?>&setid=<?= $set->id ?>">
+                            Sanctions
+                        </a>
+                        <?php if (count($game->receivingTimeouts) < 2) : ?>
+                            <button id="timeoutBtn" class="btn btn-secondary timeoutBtn m-2" data-team="A"<?= count($game->receivingTimeouts) > 1 ? "disabled" : "" ?>>
+                                Temps Mort
+                            </button>
+                        <?php endif; ?>
+                    </div>
+                    <div id="timerDisplay" class="mt-3" style="font-size: 1.5rem; display: none;">
+                        Temps restant : <span id="timer">30</span> secondes
+                    </div>
                 </div>
+
                 
                 <!-- Boutons pour ajouter un point ou une faute -->
-                <div id="actionButtons" class="mt-3" style="display: none;">
+                <div id="actionButtons" class="mt-3">
                     <button type="submit" name="action" value="point" class="btn btn-success w-100 mb-2">Ajouter un point</button>
                     <button type="submit" name="action" value="fault" class="btn btn-danger w-100">Enregistrer une faute</button>
                 </div>
             </form>
+            
         </div>
 
 
@@ -65,10 +81,25 @@ ob_start();
                     <?= $player->number ?> <?= $player->last_name ?>
                 </button>
             <?php endforeach; ?>
+
+            <!-- Boutons Sanctions et Temps Mort -->
+            <div class="d-flex flex-row justify-content-between">
+                <a class="btn btn-danger m-2" href="?action=selectBooking&teamid=<?= $game->receivingTeamId ?>&setid=<?= $set->id ?>">
+                    Sanctions
+                </a>
+                <?php if (count($game->receivingTimeouts) < 2) : ?>
+                    <button id="timeoutBtn" class="btn btn-secondary timeoutBtn m-2" data-team="B"<?= count($game->receivingTimeouts) > 1 ? "disabled" : "" ?>>
+                        Temps Mort
+                    </button>
+                <?php endif; ?>
+            </div>
+            <div id="timerDisplay" class="mt-3" style="font-size: 1.5rem; display: none;">
+                Temps restant : <span id="timer">30</span> secondes
+            </div>
         </div>
         
         <!-- Boutons pour ajouter un point ou une faute -->
-        <div id="actionButtons" class="mt-3" style="display: none;">
+        <div id="actionButtons" class="mt-3">
             <button type="submit" name="action" value="point" class="btn btn-success w-100 mb-2">Ajouter un point</button>
             <button type="submit" name="action" value="fault" class="btn btn-danger w-100">Enregistrer une faute</button>
         </div>
@@ -83,3 +114,5 @@ ob_start();
 $content = ob_get_clean();
 require_once 'gabarit.php';
 ?>
+
+<script src="/js/minuteur.js"></script>
