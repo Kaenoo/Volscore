@@ -184,3 +184,13 @@ h1 {
     color: #000000; /* Couleur du texte */
 }
 
+.mt-3{
+    margin-top: 2rem !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-danger{
+    width: auto;
+}
+

@@ -38,7 +38,6 @@ ob_start();
                 <!-- Boutons pour ajouter un point ou une faute -->
                 <div id="actionButtons" class="mt-3">
                     <button type="submit" name="action" value="point" class="btn btn-success w-100 mb-2">Ajouter un point</button>
-                    <div class="d-flex flex-row justify-content-between">
                         <a class="btn btn-danger m-2" href="?action=selectBooking&teamid=<?= $game->receivingTeamId ?>&setid=<?= $set->id ?>">
                             Sanctions
                         </a>
@@ -47,7 +46,6 @@ ob_start();
                                 Temps Mort
                             </a>
                         <?php endif; ?>
-                    </div>
                 </div>
             </form>
         </div>
@@ -82,7 +80,6 @@ ob_start();
                 <!-- Boutons pour ajouter un point ou une faute -->
                 <div id="actionButtons" class="mt-3">
                     <button type="submit" name="action" value="point" class="btn btn-success w-100 mb-2">Ajouter un point</button>
-                    <div class="d-flex flex-row justify-content-between">
                         <a class="btn btn-danger m-2" href="?action=selectBooking&teamid=<?= $game->receivingTeamId ?>&setid=<?= $set->id ?>">
                             Sanctions
                         </a>
@@ -91,7 +88,6 @@ ob_start();
                                 Temps Mort
                             </a>
                         <?php endif; ?>
-                    </div>
                 </div>
             </form>
         </div>
