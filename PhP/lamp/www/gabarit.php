@@ -10,7 +10,7 @@
 </head>
 <body>
 <header class="text-center">
-    <a href="/" style="text-decoration:none;"><h1>VolScore</h1></a>
+    <a href="/" style="text-decoration:none;"><img id="logo" src="./images/logo.png" alt="logo du site"></a>
 </header>
 <div class="container">
 <?= $content ?>

@@ -2,38 +2,46 @@ html, body {
     margin: 0;
     padding: 0;
     height: auto;
+    background: rgb(54, 129, 214);
+}
+
+main{
+    background-color: #fff;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 115vh;
+    align-items: center;
+    margin: 0 20%;
+    gap: 1em;
+    width: 60%;
+    background-color: #fff;
+    min-height: 50vh;
+    justify-content: center;
 }
 
 header {
+    margin: 2em 20% 0 20%;
+    padding: 3em 0;
     height: 3em;
-    background: rgb(77, 150, 77);
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
     color: white;
     font-size: 2em;
 }
 
-main {
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
 footer {
+    margin: 0 20% 5em 20%;
+    padding: 3em 0;
     height: 24px;
-    background: rgb(77, 150, 77);
+    background-color:#fff;
     display: flex;
     justify-content: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 td, th {
@@ -113,26 +121,44 @@ h2 {
 /* Conteneur principal */
 .row {
     display: flex;
-    justify-content: space-around; /* Espace entre les colonnes */
+    justify-content: space-evenly; /* Espace entre les colonnes */
     align-items: center; /* Centre verticalement */
-    height: 10vh; /* Prend toute la hauteur de la page */
+    height: 35vh; /* Prend toute la hauteur de la page */
+    gap: 5em;
 }
 
 /* Colonnes */
 .col-6 {
-    flex: 0 0 40%; /* Chaque colonne occupe 40% de la largeur */
-    height: 30em;
+    height: auto;
+    width: auto;
     text-align: center;
     background-color: #f9f9f9; /* Fond clair pour contraster */
     border-radius: 10px; /* Coins arrondis */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide pour l'effet */
     padding: 20px;
     cursor: pointer; /* Curseur pointer pour indiquer un élément cliquable */
 }
 
+.col-6-index{
+    height: 20em;
+    width: 20em;
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Effet au survol */
 .col-6:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+}
+
+.col-6-index:hover {
     transform: scale(1.05); /* Zoom léger au survol */
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
 }
@@ -174,7 +200,7 @@ a {
     text-decoration: none;
     color: inherit; /* Garder la couleur par défaut */
     display: block; /* Faire que le lien couvre toute la boîte */
-    height: 100%; /* S'assurer que l'effet hover est sur toute la boîte */
+    height: auto; /* S'assurer que l'effet hover est sur toute la boîte */
 }
 
 /* Titres */
@@ -192,5 +218,19 @@ h1 {
 
 .btn-danger{
     width: auto;
+}
+
+#logo{
+    height: 3em;
+}
+
+#logo:hover{
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+ul{
+    font-size: xx-large;
+    list-style-type: none;
 }
 
