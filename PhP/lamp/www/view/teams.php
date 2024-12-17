@@ -3,17 +3,19 @@ $title = 'Equipes';
 
 ob_start();
 ?>
+<div class="container">
+    <h1>Equipes</h1>
+    <div class="team">
+        <ul>
 
-<h1>Equipes</h1>
-<ul>
-
-<?php
-foreach ($teams as $team)
-{
-    echo "<li>".$team->name."</li>";
-}
-?>
-</ul>
+            <?php
+            foreach ($teams as $team) {
+                echo "<li>" . $team->name . "</li>";
+            }
+            ?>
+        </ul>
+    </div>
+</div>
 
 <?php
 $content = ob_get_clean();

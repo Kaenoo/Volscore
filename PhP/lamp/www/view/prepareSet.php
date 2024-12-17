@@ -43,7 +43,7 @@ ob_start();
                     <input type="hidden" name="setid" value="<?= $set->id ?>" />
                     <input type="hidden" name="receiving_teamid" value="<?= $game->receivingTeamId ?>" />
                     <input type="hidden" name="visiting_teamid" value="<?= $game->visitingTeamId ?>" />
-
+ 
                     <table>
                         <tr>
                             <th>Positions <?= $game->receivingTeamName ?></th>
@@ -68,7 +68,7 @@ ob_start();
                                     <input type="checkbox" name="final_receiving"> Finales équipe receveuse
                                 </label>
                             </td>
-
+ 
                             <!-- Positions Équipe Visiteuse -->
                             <td>
                                 <?php for ($pos = 1; $pos <= 6; $pos++) : ?>
@@ -89,7 +89,7 @@ ob_start();
                             </td>
                         </tr>
                     </table>
-
+ 
                     <!-- Bouton d'enregistrement -->
                     <div style="text-align: center;">
                         <input type="submit" class="btn btn-primary" value="Enregistrer">
@@ -99,26 +99,26 @@ ob_start();
         </td>
     </tr>
 </table>
-
+ 
 <!-- Bouton pour démarrer le set si les deux équipes ont verrouillé leurs positions -->
 <?php if ($receivingPositionsLocked && $visitingPositionsLocked) : ?>
     <a href="?action=keepScore&setid=<?= $set->id ?>" class="btn btn-primary">Démarrer le set</a>
 <?php endif; ?>
-
+ 
 <?php
 $content = ob_get_clean();
 require_once 'gabarit.php';
 ?>
-
+ 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const forms = document.querySelectorAll('form');
-
+ 
         forms.forEach(form => {
             form.addEventListener('submit', function(event) {
                 const selects = form.querySelectorAll('select');
                 const selectedValues = [];
-
+ 
                 // Validation pour éviter la sélection du même joueur plusieurs fois
                 for (const select of selects) {
                     if (select.value !== "0" && selectedValues.includes(select.value)) {

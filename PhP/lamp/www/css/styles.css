@@ -1,11 +1,12 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: auto;
     background: rgb(54, 129, 214);
 }
 
-main{
+main {
     background-color: #fff;
 }
 
@@ -15,10 +16,47 @@ main{
     align-items: center;
     margin: 0 20%;
     gap: 1em;
-    width: 60%;
+    width: -webkit-fill-available;
     background-color: #fff;
     min-height: 50vh;
+    padding-top: 2em;
+}
+
+.container-marking {
+    display: flex;
     justify-content: center;
+    flex-direction: column;
+    min-height: 50vh;
+    background-color: #fff;
+    margin: 0 20%;
+}
+
+.marking {
+    display: flex;
+}
+
+.table {
+    width: 80%;
+}
+
+.team {
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+}
+
+.team ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1em;
+    list-style-type: none;
+    padding: 1em;
+    width: 100%;
+}
+
+.team ul li {
+    text-align: center;
+    align-items: center;
 }
 
 header {
@@ -38,13 +76,14 @@ footer {
     margin: 0 20% 5em 20%;
     padding: 3em 0;
     height: 24px;
-    background-color:#fff;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     color: rgb(0, 0, 0);
 }
 
-td, th {
+td,
+th {
     vertical-align: top;
     padding-left: 20px;
 }
@@ -72,34 +111,36 @@ td, th {
 
 /* Thanks http://jsfiddle.net/mirohristov/awayF/473/ */
 .checkmark {
-    display:inline-block;
+    display: inline-block;
     width: 22px;
-    height:22px;
+    height: 22px;
     background: #38d917;
-    border-radius:50%;
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    border-radius: 50%;
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Chrome, Safari, Opera */
     transform: rotate(45deg);
 }
 
-.checkmark:before{
-    content:"";
+.checkmark:before {
+    content: "";
     position: absolute;
-    width:3px;
-    height:9px;
-    background-color:#fff;
-    left:11px;
-    top:6px;
+    width: 3px;
+    height: 9px;
+    background-color: #fff;
+    left: 11px;
+    top: 6px;
 }
 
-.checkmark:after{
-    content:"";
+.checkmark:after {
+    content: "";
     position: absolute;
-    width:3px;
-    height:3px;
-    background-color:#fff;
-    left:8px;
-    top:12px;
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    left: 8px;
+    top: 12px;
 }
 
 .serving {
@@ -121,10 +162,18 @@ h2 {
 /* Conteneur principal */
 .row {
     display: flex;
-    justify-content: space-evenly; /* Espace entre les colonnes */
-    align-items: center; /* Centre verticalement */
-    height: 35vh; /* Prend toute la hauteur de la page */
-    gap: 5em;
+    height: auto;
+}
+
+.row-index {
+    display: flex;
+    justify-content: space-evenly;
+    /* Espace entre les colonnes */
+    align-items: center;
+    /* Centre verticalement */
+    height: 35vh;
+    /* Prend toute la hauteur de la page */
+    gap: 10%;
 }
 
 /* Colonnes */
@@ -132,16 +181,11 @@ h2 {
     height: auto;
     width: auto;
     text-align: center;
-    background-color: #f9f9f9; /* Fond clair pour contraster */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    padding: 20px;
-    cursor: pointer; /* Curseur pointer pour indiquer un élément cliquable */
 }
 
-.col-6-index{
-    height: 20em;
-    width: 20em;
+.col-6-index {
+    height: 90%;
+    width: 40%;
     display: flex;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -154,13 +198,17 @@ h2 {
 
 /* Effet au survol */
 .col-6:hover {
-    transform: scale(1.05); /* Zoom léger au survol */
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+    transform: scale(1.05);
+    /* Zoom léger au survol */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    /* Ombre plus prononcée */
 }
 
 .col-6-index:hover {
-    transform: scale(1.05); /* Zoom léger au survol */
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+    transform: scale(1.05);
+    /* Zoom léger au survol */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    /* Ombre plus prononcée */
 }
 
 .justify-content-around {
@@ -185,6 +233,7 @@ h2 {
     background-color: #007bff;
     color: white;
 }
+
 .player.btn-secondary {
     background-color: #6c757d;
     color: white;
@@ -198,39 +247,49 @@ h2 {
 /* Liens */
 a {
     text-decoration: none;
-    color: inherit; /* Garder la couleur par défaut */
-    display: block; /* Faire que le lien couvre toute la boîte */
-    height: auto; /* S'assurer que l'effet hover est sur toute la boîte */
+    color: inherit;
+    /* Garder la couleur par défaut */
+    display: block;
+    /* Faire que le lien couvre toute la boîte */
+    height: auto;
+    /* S'assurer que l'effet hover est sur toute la boîte */
+}
+
+a.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    width: 20em;
 }
 
 /* Titres */
 h1 {
     font-size: 2.5em;
     margin: 0;
-    color: #000000; /* Couleur du texte */
+    color: #000000;
+    /* Couleur du texte */
 }
 
-.mt-3{
-    margin-top: 2rem !important;
+.mt-3 {
     display: flex;
     flex-direction: column;
 }
 
-.btn-danger{
+.btn-danger {
     width: auto;
 }
 
-#logo{
+#logo {
     height: 3em;
 }
 
-#logo:hover{
+#logo:hover {
     transform: scale(1.05);
     transition: all 0.2s ease;
 }
 
-ul{
+ul {
     font-size: xx-large;
     list-style-type: none;
 }
-
