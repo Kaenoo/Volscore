@@ -39,6 +39,17 @@ main {
     width: 80%;
 }
 
+table{
+    width: 80%;
+    margin: 5% auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prepare{
+    width: auto;
+}
+
 .team {
     height: -webkit-fill-available;
     width: -webkit-fill-available;
