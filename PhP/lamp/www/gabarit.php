@@ -12,9 +12,9 @@
 <header class="text-center">
     <a href="/" style="text-decoration:none;"><img id="logo" src="./images/logo.png" alt="logo du site"></a>
 </header>
-<div class="container">
+
 <?= $content ?>
-</div>
+
 <footer class="text-center">
     <p>© ETML 2023</p>
 </footer>
